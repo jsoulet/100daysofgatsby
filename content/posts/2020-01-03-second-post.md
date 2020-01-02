@@ -1,7 +1,7 @@
 ---
-path: "/blog/2020-01-03-second-post"
-title: Second post
-date: 2020-01-03
+path: "/blog/2020-01-02-first-challenge"
+title: First challenge
+date: 2020-01-02
 ---
 
 Let's kickstart the year trying to complete the #100DaysOfGatsby challenge

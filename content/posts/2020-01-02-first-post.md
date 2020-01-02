@@ -1,27 +1,13 @@
 ---
-path: "/blog/2020-01-02-first-post"
-title: First post
-date: 2020-01-02
+path: "/blog/2020-01-01-why-i-am-trying-the-110daysofgatsby-challenger"
+title: "Why I am trying #100DaysOfGatsby?"
+date: 2020-01-01
 ---
 
-Let's kickstart the year trying to complete the #100DaysOfGatsby challenge
+Last year was crazy! I managed to make a huge step out of my confort zone. Withing this time, I read a lot, and I got the opportunity to tests many trendy technologies and tools for JavaScript development (HeadlessCMS, React Native, Cypress.io...).
 
-👋 Welcome fellow Tailwind CSS and miminal monochrome blog fan. This starter template provides a starting point to create your own minimal monochrome blog using Tailwind CSS and vanilla Javascript.
+I've been using React in production for almost 5 years now, and, I've been impressed by the power of GraphQL since I've heared about it in 2016. So my favorite discovery of the year 2019 can not be anything else than GatsbyJS ! I appreciated the way it changing how we're creating websites, by creating a wonderful experience for both developers and users.
 
-The basic blog page layout is available and all using the default Tailwind CSS classes (although there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert the classes into components.
+These 100 days will give me the opportunity to dig deeper into Gatsby and I hope to explore it from every angle.
 
-# Heading 1
-
-## Heading 2
-
-### Heading 3
-
-#### Heading 4
-
-##### Heading 5
-
-###### Heading 6
-
-Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum elementum.
-
-Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.
+See you soon
