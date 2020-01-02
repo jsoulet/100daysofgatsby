@@ -18,7 +18,6 @@ const Header = ({ siteTitle }) => {
       } else {
         setIsHeaderTransparent(false)
       }
-      
     }
     window.addEventListener('scroll', scrollListenner)
     return () => window.removeEventListener('scroll', scrollListenner)
@@ -46,13 +45,7 @@ const Header = ({ siteTitle }) => {
       } id="nav-content">
 				<ul className="list-reset mb-0 lg:flex justify-end flex-1 items-center">
 					<li className="mr-3 mb-0">
-						<Link className="inline-block py-2 px-4 text-gray-900 font-bold no-underline" to="/">Active</Link>
-					</li>
-					<li className="mr-3 mb-0">
-						<Link className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" to="/">link</Link>
-					</li>
-					<li className="mr-3 mb-0">
-						<Link className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4" to="/">link</Link>
+						<a href="https://twitter.com/johansoulet" target="_blank" className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4" to="/" rel="noopener noreferrer">Contact me</a>
 					</li>
 				</ul>
 			</nav>

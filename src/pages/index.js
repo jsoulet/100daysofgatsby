@@ -5,19 +5,15 @@ import Layout from "../components/Layout"
 import Image from "../components/Image"
 import SEO from "../components/seo"
 import PostLink from "../components/PostLink"
+import Hero from '../components/Hero'
 
 const IndexPage = ({data}) => {
 
   return <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <Hero/>
     <div>
-      {data.allMarkdownRemark.edges.map(({node}) => <PostLink post={node} key={node.id}/>)}
-    </div>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+      {data.allMarkdownRemark.edges.map(({node}) => <PostLink post={node} key={node.id} excerpt={node.excerpt}/>)}
     </div>
   </Layout>
 }
@@ -30,7 +26,7 @@ export const pageQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "DD-MM-YYYY")
+            date(formatString: "Do MMMM YYYY")
             path
             title
           }

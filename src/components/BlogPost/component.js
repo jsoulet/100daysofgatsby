@@ -17,11 +17,7 @@ const BlogPost = ({data, pageContext}) => {
                 <p className="text-sm md:text-base font-normal text-gray-600">{frontmatter.date}</p>
             </div>
             <div className="py-6 leading-normal markdown" dangerouslySetInnerHTML={{ __html: html }} />
-
-            {/* <!--Divider--> */}
             <hr className="border-b-2 border-gray-400 mb-8"/>
-            
-            {/* <!--Next & Prev Links--> */}
             <PostLinks {...{next, previous}}/>
         </div>
     </Layout>
