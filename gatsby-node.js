@@ -5,7 +5,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     const blogPostTemplate = path.resolve(`${__dirname}/src/components/BlogPost/component.js`)
     const posts = await graphql(`
         query {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
                 edges {
                     node {
                         id
@@ -40,8 +40,11 @@ exports.createPages = async ({actions, graphql, reporter}) => {
           component: blogPostTemplate,
           context: {
               id: node.id,
-              next,
-              previous,
+              // Because post are sorted in an anti-chronological order
+              // next and previous posts need to be switched to be coherently
+              // displayed in by UI
+              next: previous,
+              previous: next,
           },
         })
       })

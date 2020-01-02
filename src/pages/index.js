@@ -11,7 +11,7 @@ const IndexPage = ({data}) => {
   return <Layout>
     <SEO title="Home" />
     <Hero/>
-    <div>
+    <div className="my-12">
       {data.allMarkdownRemark.edges.map(({node}) => <PostLink post={node} key={node.id} excerpt={node.excerpt}/>)}
     </div>
   </Layout>
