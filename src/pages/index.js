@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import Image from "../components/Image"
 import SEO from "../components/seo"
 import PostLink from "../components/PostLink"
 import Hero from '../components/Hero'
