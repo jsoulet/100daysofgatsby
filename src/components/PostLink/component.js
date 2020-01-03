@@ -6,7 +6,7 @@ const PostLink = ({path, title, date, excerpt}) => {
             <Link to={path} className="flex flex-wrap no-underline hover:no-underline">
                 <div className="w-full md:w-2/3 flex flex-col flex-grow flex-shrink">
                     <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-                        <div className="w-full font-bold text-xl text-gray-900 px-6 pt-6">{title}</div>
+                        <div className="w-full font-bold text-xl text-gray-900 p-6">{title}</div>
                         <p className="text-gray-800 font-serif text-base px-6">
                             {excerpt}
                         </p>
