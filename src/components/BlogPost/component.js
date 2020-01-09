@@ -1,12 +1,18 @@
 import React from 'react'
 import {graphql, Link} from 'gatsby'
+import { liveRemarkForm } from "gatsby-tinacms-remark"
+import { Wysiwyg } from "@tinacms/fields"
+import { TinaField } from "tinacms"
+import { Button as TinaButton } from "@tinacms/styles"
+
 import Layout from "../Layout"
 import PostLinks from './PostLinks'
 import SEO from "../seo"
 
-const BlogPost = ({data, pageContext}) => {
+const BlogPost = ({data, pageContext, isEditing, setIsEditing}) => {
     const {frontmatter, html} = data.markdownRemark
     const {next, previous} = pageContext
+
     return <Layout>
         <SEO title={frontmatter.title}/>
         <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style={{fontFamily:'Georgia,serif'}}>
@@ -14,9 +20,22 @@ const BlogPost = ({data, pageContext}) => {
                 <span className="text-base md:text-sm text-teal-500 font-bold">&lt; </span>
                     <Link to="/" className="text-base md:text-sm text-teal-500 font-bold no-underline hover:underline">HOME</Link>
                 <h1 className="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">{frontmatter.title}</h1>
-                <p className="text-sm md:text-base font-normal text-gray-600">{frontmatter.date}</p>
+                <div className="flex items-center justify-between">
+                    <p className="text-sm md:text-base font-normal text-gray-600">{frontmatter.date}</p>
+                    {
+                        process.env.NODE_ENV !== "production" && (
+                            <TinaButton primary onClick={() => setIsEditing(p => !p)}>
+                                {isEditing ? "Close" : "Edit"}
+                            </TinaButton>
+                        )
+                    }
+                </div>
             </div>
-            <div className="py-6 leading-normal markdown" dangerouslySetInnerHTML={{ __html: html }} />
+            <section className="py-6 leading-normal markdown" >
+                <TinaField name="rawMarkdownBody" Component={Wysiwyg}>
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                </TinaField>
+            </section>
             <hr className="border-b-2 border-gray-400 mb-8"/>
             <PostLinks {...{next, previous}}/>
         </div>
@@ -31,8 +50,34 @@ export const pageQuery = graphql`
                 title,
                 date(formatString: "Do MMMM YYYY")
             }
+            ...TinaRemark
         }
     }
 `
 
-export default BlogPost
+const BlogPostForm = {
+    fields: [
+      {
+        label: "Title",
+        name: "frontmatter.title",
+        component: "text",
+      },
+      {
+        label: "Path",
+        name: "frontmatter.path",
+        description: "Enter the post URL",
+        component: "text",
+        defaultValue: "/blog/"
+      },
+      {
+        label: "Date",
+        name: "frontmatter.date",
+        component: "date",
+        dateFormat: "Do MMMM YYYY",
+        timeFormat: false,
+        defaultValue: new Date()
+      },
+    ],
+  }
+
+export default liveRemarkForm(BlogPost, BlogPostForm)
