@@ -10,11 +10,11 @@ import PostLinks from './PostLinks'
 import SEO from "../seo"
 
 const BlogPost = ({data, pageContext, isEditing, setIsEditing}) => {
-    const {frontmatter, html} = data.markdownRemark
+    const {frontmatter, html, excerpt} = data.markdownRemark
     const {next, previous} = pageContext
 
     return <Layout>
-        <SEO title={frontmatter.title}/>
+        <SEO title={frontmatter.title} description={excerpt}/>
         <div className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style={{fontFamily:'Georgia,serif'}}>
             <div className="font-sans">
                 <span className="text-base md:text-sm text-teal-500 font-bold">&lt; </span>
@@ -46,6 +46,7 @@ export const pageQuery = graphql`
     query($id: String!) {
         markdownRemark(id: {eq : $id}) {
             html
+            excerpt(pruneLength: 160)
             frontmatter {
                 title,
                 date(formatString: "Do MMMM YYYY")
