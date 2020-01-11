@@ -1,20 +1,13 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { withPlugin } from "tinacms"
 
-
 import Header from "./header"
 import Footer from "./footer"
-import "./layout.css"
 import CreateBlogPlugin from './CreateBlogPlugin'
+
+import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -30,7 +23,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="bg-gray-100  font-sans leading-normal tracking-normal">
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+           
+        />
         <div
           className="container w-full md:max-w-3xl mx-auto pt-20"
         >
