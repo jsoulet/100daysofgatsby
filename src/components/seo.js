@@ -14,6 +14,7 @@ import favicon16 from '../images/favicon16.png'
 import favicon32 from '../images/favicon32.png'
 import favicon96 from '../images/favicon96.png'
 import ogImage from '../images/og-image.png'
+import twitterImage from '../images/twitter-card.png'
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -68,6 +69,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:card`,
           content: `summary`,
+        },
+        {
+          name: `twitter:image`,
+          content: twitterImage,
         },
         {
           name: `twitter:creator`,
