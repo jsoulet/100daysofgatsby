@@ -13,6 +13,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import favicon16 from '../images/favicon16.png'
 import favicon32 from '../images/favicon32.png'
 import favicon96 from '../images/favicon96.png'
+import ogImage from '../images/og-image.png'
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -55,6 +56,10 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: ogImage,
         },
         {
           property: `og:type`,
