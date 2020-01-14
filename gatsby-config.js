@@ -3,6 +3,7 @@ module.exports = {
     title: `#100DaysOfGatsby`,
     description: `To kick off the year 2020, I'm joining the #100DaysOfGatsby Challenge. This blog will document my journey.`,
     author: `@johansoulet`,
+    siteUrl: 'https://100daysofgatsby2020.netlify.com'
   },
   plugins: [
     `gatsby-plugin-typescript`,

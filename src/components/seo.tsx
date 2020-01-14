@@ -13,6 +13,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import favicon16 from '../images/favicon16.png'
 import favicon32 from '../images/favicon32.png'
 import favicon96 from '../images/favicon96.png'
+import ogImage from '../images/og-image.png'
+import twitterImage from '../images/twitter-card.png'
 
 interface Props {
   description?: string
@@ -37,6 +39,7 @@ function SEO({ description, lang, meta = [], title }: Props) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -81,12 +84,20 @@ function SEO({ description, lang, meta = [], title }: Props) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}${ogImage}`,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
         {
           name: `twitter:card`,
           content: `summary`,
+        },
+        {
+          name: `twitter:image`,
+          content: `${site.siteMetadata.siteUrl}${twitterImage}`,
         },
         {
           name: `twitter:creator`,
