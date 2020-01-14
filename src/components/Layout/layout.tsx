@@ -1,15 +1,19 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import { withPlugin } from "tinacms"
+import React, { ReactNode } from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import { withPlugin } from 'tinacms'
 
-import Header from "./header"
-import Footer from "./footer"
+import Header from './header'
+import Footer from './footer'
 import CreateBlogPlugin from './CreateBlogPlugin'
 
-import "./layout.css"
+import './layout.css'
 
-const Layout = ({ children }) => {
+interface Props {
+  children: ReactNode
+}
+
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,22 +27,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="bg-gray-100  font-sans leading-normal tracking-normal">
-        <Header
-          siteTitle={data.site.siteMetadata.title}
-           
-        />
-        <div
-          className="container w-full md:max-w-3xl mx-auto pt-20"
-        >
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div className="container w-full md:max-w-3xl mx-auto pt-20">
           <main>{children}</main>
-          
-          <footer>
-            
-          </footer>
+
+          <footer></footer>
         </div>
         <Footer></Footer>
       </div>
-
     </>
   )
 }
