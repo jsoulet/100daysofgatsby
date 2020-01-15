@@ -2,7 +2,7 @@ const path = require('path')
 
 exports.createPages = async ({actions, graphql, reporter}) => {
     const {createPage} = actions
-    const blogPostTemplate = path.resolve(`${__dirname}/src/components/BlogPost/component.js`)
+    const blogPostTemplate = path.resolve(`${__dirname}/src/components/BlogPost/component.tsx`)
     const posts = await graphql(`
         query {
             allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {

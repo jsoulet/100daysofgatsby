@@ -16,17 +16,14 @@ import favicon96 from '../images/favicon96.png'
 import ogImage from '../images/og-image.png'
 import twitterImage from '../images/twitter-card.png'
 
+interface Meta {
+  name: string
+  content: any
+}
 interface Props {
   description?: string
   lang?: string
-  meta?:
-    | [
-        {
-          name: string
-          content: any
-        }
-      ]
-    | []
+  meta?: Meta[] | []
   title?: string
 }
 
