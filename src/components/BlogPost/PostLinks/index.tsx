@@ -1,6 +1,6 @@
 export { default } from './component'
 
-export interface PostLinkProps {
+export interface PostLink {
   frontmatter: {
     title: string
     path: string

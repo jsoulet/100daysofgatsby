@@ -1,11 +1,11 @@
 import React from 'react'
 import PostLink from './PostLink'
-import { PostLinkProps } from './index'
-interface Props {
-  next: PostLinkProps
-  previous: PostLinkProps
+import { PostLink as PostLinkType } from './index'
+interface PostLinksProps {
+  next: PostLinkType | null
+  previous: PostLinkType | null
 }
-const PostLinks = ({ next, previous }: Props) => {
+const PostLinks = ({ next, previous }: PostLinksProps) => {
   return (
     <div className="font-sans flex justify-between content-center pb-12">
       {previous ? (

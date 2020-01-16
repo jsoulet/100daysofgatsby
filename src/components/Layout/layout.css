@@ -64,4 +64,11 @@
 .markdown table {
   @apply mb-6;
 }
+.markdown pre {
+  @apply text-sm p-2 bg-gray-300 mb-4;
+}
+
+.markdown code {
+  @apply text-sm p-1 bg-gray-300;
+}
 /* purgecss end ignore */

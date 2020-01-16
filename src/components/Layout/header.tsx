@@ -2,6 +2,8 @@ import { Link } from 'gatsby'
 import React, { useState, useEffect } from 'react'
 import cn from 'classnames'
 
+import gitlabLogo from '../../images/gitlab-icon.svg'
+
 interface Props {
   siteTitle: string
 }
@@ -72,6 +74,19 @@ const Header = ({ siteTitle }: Props) => {
           id="nav-content"
         >
           <ul className="list-reset mb-0 lg:flex justify-end flex-1 items-center">
+            <li>
+              <a
+                href="https://gitlab.com/jsoulet/100daysofgatsby"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={gitlabLogo}
+                  className="mr-3"
+                  style={{ maxHeight: '1.5rem' }}
+                />
+              </a>
+            </li>
             <li className="mr-3 mb-0">
               <a
                 href="https://twitter.com/johansoulet"

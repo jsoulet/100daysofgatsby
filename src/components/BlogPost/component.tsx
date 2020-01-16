@@ -6,10 +6,10 @@ import { TinaField } from 'tinacms'
 import { Button as TinaButton } from '@tinacms/styles'
 
 import Layout from '../Layout'
-import PostLinks, { PostLinkProps } from './PostLinks'
+import PostLinks, { PostLink } from './PostLinks'
 import SEO from '../seo'
 
-interface Props {
+interface BlogPostProps {
   data: {
     markdownRemark: {
       frontmatter: {
@@ -21,14 +21,19 @@ interface Props {
     }
   }
   pageContext: {
-    next: PostLinkProps
-    previous: PostLinkProps
+    next: PostLink | null
+    previous: PostLink | null
   }
   isEditing: boolean
   setIsEditing: (callback: (isEditing: boolean) => boolean) => void
 }
 
-const BlogPost = ({ data, pageContext, isEditing, setIsEditing }: Props) => {
+const BlogPost = ({
+  data,
+  pageContext,
+  isEditing,
+  setIsEditing,
+}: BlogPostProps) => {
   const { frontmatter, html, excerpt } = data.markdownRemark
   const { next, previous } = pageContext
 

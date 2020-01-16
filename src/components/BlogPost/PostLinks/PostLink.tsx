@@ -2,13 +2,13 @@ import React from 'react'
 import cn from 'classnames'
 import { Link } from 'gatsby'
 
-interface Props {
+interface PostLinkProps {
   isPrevious?: boolean
   title: string
   link: string
 }
 
-const PostLink = ({ isPrevious, title, link }: Props) => {
+const PostLink = ({ isPrevious, title, link }: PostLinkProps) => {
   return (
     <div
       className={cn({ 'text-right': !isPrevious, 'text-left': !isPrevious })}
