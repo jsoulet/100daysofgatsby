@@ -13,6 +13,11 @@ import SEO from '../seo'
 
 export const pageQuery = graphql`
   query($id: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       html
       excerpt(pruneLength: 160)
@@ -40,6 +45,11 @@ export const pageQuery = graphql`
 `
 interface BlogPostProps {
   data: {
+    site: {
+      siteMetadata: {
+        siteUrl: string
+      }
+    }
     markdownRemark: {
       frontmatter: {
         title: string
@@ -79,11 +89,11 @@ const BlogPost = ({
           },
           {
             property: `og:image`,
-            content: `${frontmatter.seoCard.childImageSharp.fixed.src}`,
+            content: `${data.site.siteMetadata.siteUrl}${frontmatter.seoCard.childImageSharp.fixed.src}`,
           },
           {
             name: `twitter:image`,
-            content: `${frontmatter.seoCard.childImageSharp.fixed.src}`,
+            content: `${data.site.siteMetadata.siteUrl}${frontmatter.seoCard.childImageSharp.fixed.src}`,
           },
         ]}
       ></Helmet>
