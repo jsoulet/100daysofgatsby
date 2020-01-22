@@ -14,6 +14,7 @@ const PostLinkContainer = ({ post, excerpt }: Props) => {
       path={post.frontmatter.path}
       title={post.frontmatter.title}
       date={post.frontmatter.date}
+      image={post.frontmatter.featuredImage}
       excerpt={excerpt}
     />
   )

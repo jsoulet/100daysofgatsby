@@ -1,10 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/Layout"
-import SEO from "../components/seo"
-import PostLink, { PostLinkProps } from "../components/PostLink"
-import Hero from "../components/Hero"
+import Layout from '../components/Layout'
+import SEO from '../components/seo'
+import PostLink, { PostLinkProps } from '../components/PostLink'
+import Hero from '../components/Hero'
 
 interface Props {
   data: {
@@ -39,6 +39,13 @@ export const pageQuery = graphql`
             date(formatString: "Do MMMM YYYY")
             path
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

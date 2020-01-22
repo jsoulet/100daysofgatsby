@@ -8,6 +8,7 @@ export interface PostLinkProps {
       path: string
       title: string
       date: string
+      featuredImage: any
     }
   }
 }

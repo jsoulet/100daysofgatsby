@@ -4,17 +4,39 @@ import { liveRemarkForm } from 'gatsby-tinacms-remark'
 import { Wysiwyg } from '@tinacms/fields'
 import { TinaField } from 'tinacms'
 import { Button as TinaButton } from '@tinacms/styles'
+import Image from 'gatsby-image'
 
 import Layout from '../Layout'
 import PostLinks, { PostLink } from './PostLinks'
 import SEO from '../seo'
 
+export const pageQuery = graphql`
+  query($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      html
+      excerpt(pruneLength: 160)
+      frontmatter {
+        title
+        date(formatString: "Do MMMM YYYY")
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      ...TinaRemark
+    }
+  }
+`
 interface BlogPostProps {
   data: {
     markdownRemark: {
       frontmatter: {
         title: string
         date: string
+        featuredImage: any
       }
       html: string
       excerpt: string
@@ -62,11 +84,18 @@ const BlogPost = ({
               {frontmatter.date}
             </p>
             {process.env.NODE_ENV !== 'production' && (
-              <TinaButton primary onClick={() => setIsEditing(p => !p)}>
+              <TinaButton
+                primary
+                onClick={() => setIsEditing(p => !p)}
+                className="mb-2"
+              >
                 {isEditing ? 'Close' : 'Edit'}
               </TinaButton>
             )}
           </div>
+          <Image
+            fluid={frontmatter.featuredImage.childImageSharp.fluid}
+          ></Image>
         </div>
         <section className="py-6 leading-normal markdown">
           <TinaField name="rawMarkdownBody" Component={Wysiwyg}>
@@ -79,20 +108,6 @@ const BlogPost = ({
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      excerpt(pruneLength: 160)
-      frontmatter {
-        title
-        date(formatString: "Do MMMM YYYY")
-      }
-      ...TinaRemark
-    }
-  }
-`
 
 const BlogPostForm = {
   fields: [
