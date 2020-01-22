@@ -20,7 +20,7 @@ export const pageQuery = graphql`
         date(formatString: "Do MMMM YYYY")
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 680, maxHeight: 400) {
               ...GatsbyImageSharpFluid
             }
           }
