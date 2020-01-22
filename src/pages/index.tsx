@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import PostLink, { PostLinkProps } from '../components/PostLink'
+import PostLink, { PostLinkProps } from '../components/PostListItem'
 import Hero from '../components/Hero'
 
 interface Props {

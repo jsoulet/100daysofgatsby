@@ -18,8 +18,9 @@ const PostLink = ({ path, title, date, excerpt, image }: Props) => {
         className="flex flex-wrap no-underline hover:no-underline group"
       >
         <div className="w-full md:w-1/3">
-          <Image fluid={image.childImageSharp.fluid}></Image>
+          <Image className="h-full" fluid={image.childImageSharp.fluid}></Image>
         </div>
+
         <div className="w-full md:w-2/3 flex flex-col flex-grow flex-shrink">
           <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
             <div className="w-full font-bold text-xl text-gray-900 p-6 group-hover:underline">
