@@ -5,6 +5,7 @@ import { Wysiwyg } from '@tinacms/fields'
 import { TinaField } from 'tinacms'
 import { Button as TinaButton } from '@tinacms/styles'
 import Image from 'gatsby-image'
+import Helmet from 'react-helmet'
 
 import Layout from '../Layout'
 import PostLinks, { PostLink } from './PostLinks'
@@ -25,6 +26,13 @@ export const pageQuery = graphql`
             }
           }
         }
+        seoCard: featuredImage {
+          childImageSharp {
+            fixed(width: 1200, height: 600) {
+              src
+            }
+          }
+        }
       }
       ...TinaRemark
     }
@@ -37,6 +45,7 @@ interface BlogPostProps {
         title: string
         date: string
         featuredImage: any
+        seoCard: any
       }
       html: string
       excerpt: string
@@ -62,6 +71,22 @@ const BlogPost = ({
   return (
     <Layout>
       <SEO title={frontmatter.title} description={excerpt} />
+      <Helmet
+        meta={[
+          {
+            name: `twitter:card`,
+            content: `summary_large_image`,
+          },
+          {
+            property: `og:image`,
+            content: `${frontmatter.seoCard.childImageSharp.fixed.src}`,
+          },
+          {
+            name: `twitter:image`,
+            content: `${frontmatter.seoCard.childImageSharp.fixed.src}`,
+          },
+        ]}
+      ></Helmet>
       <div
         className="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal"
         style={{ fontFamily: 'Georgia,serif' }}
