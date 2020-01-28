@@ -28,7 +28,7 @@ const Layout = ({ children }: Props) => {
     <>
       <div className="bg-gray-100  font-sans leading-normal tracking-normal">
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="container w-full md:max-w-3xl mx-auto pt-20">
+        <div className="container w-full md:max-w-3xl mx-auto pt-20 px-5">
           <main>{children}</main>
 
           <footer></footer>
