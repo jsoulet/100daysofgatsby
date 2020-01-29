@@ -32,7 +32,7 @@ const Header = ({ siteTitle }: Props) => {
     <header
       id="header"
       className={cn('fixed w-full top-0 z-10', {
-        'bg-white shadow': !isHeaderTransparent,
+        'bg-white shadow': !isHeaderTransparent || !isNavHidden,
       })}
     >
       <div className="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3">
@@ -67,18 +67,27 @@ const Header = ({ siteTitle }: Props) => {
             'w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 bg-white md:bg-transparent lg:items-center',
             {
               hidden: isNavHidden,
-              'bg-white': !isHeaderTransparent,
               'bg-gray-100': isHeaderTransparent,
+              'bg-white': !isHeaderTransparent || !isNavHidden,
             }
           )}
           id="nav-content"
         >
           <ul className="list-reset mb-0 lg:flex justify-end flex-1 items-center">
-            <li>
+            <li className="mr-3 mb-0">
+              <Link
+                to="/about"
+                className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4"
+              >
+                About me
+              </Link>
+            </li>
+            <li className="mr-3 mb-0">
               <a
                 href="https://github.com/jsoulet/100daysofgatsby"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4"
               >
                 <img
                   src={gitLogo}
@@ -86,19 +95,6 @@ const Header = ({ siteTitle }: Props) => {
                   style={{ maxHeight: '1.5rem' }}
                 />
               </a>
-            </li>
-            <li className="mr-3 mb-0">
-              <a
-                href="https://twitter.com/johansoulet"
-                target="_blank"
-                className="inline-block text-gray-600 no-underline hover:text-gray-900 hover:underline py-2 px-4"
-                rel="noopener noreferrer"
-              >
-                Contact me
-              </a>
-            </li>
-            <li className="mr-3 mb-0">
-              <Link to="/about">About me</Link>
             </li>
           </ul>
         </nav>
