@@ -2,7 +2,7 @@ import { Link } from 'gatsby'
 import React, { useState, useEffect } from 'react'
 import cn from 'classnames'
 
-import gitlabLogo from '../../images/gitlab-icon.svg'
+import gitLogo from '../../images/github-icon.svg'
 
 interface Props {
   siteTitle: string
@@ -76,12 +76,12 @@ const Header = ({ siteTitle }: Props) => {
           <ul className="list-reset mb-0 lg:flex justify-end flex-1 items-center">
             <li>
               <a
-                href="https://gitlab.com/jsoulet/100daysofgatsby"
+                href="https://github.com/jsoulet/100daysofgatsby"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src={gitlabLogo}
+                  src={gitLogo}
                   className="mr-3"
                   style={{ maxHeight: '1.5rem' }}
                 />
@@ -96,6 +96,9 @@ const Header = ({ siteTitle }: Props) => {
               >
                 Contact me
               </a>
+            </li>
+            <li className="mr-3 mb-0">
+              <Link to="/about">About me</Link>
             </li>
           </ul>
         </nav>
