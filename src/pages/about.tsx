@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
+import ContactForm from '../components/ContactForm'
 import Image, { FluidObject } from 'gatsby-image'
 
 interface Props {
@@ -21,7 +22,6 @@ interface Props {
 }
 
 const AboutPage = ({ data }: Props) => {
-  console.log(data)
   return (
     <Layout>
       <SEO title="About" />
@@ -54,11 +54,12 @@ const AboutPage = ({ data }: Props) => {
             to develop my skills and master Gatsby universe. I hope to use it
             soon to create tonnes of new websites!!
           </p>
-          {/* <h2 className="mb-3 text-xl font-bold">Contact me</h2>
+          <h2 className="mb-3 text-xl font-bold">Contact me</h2>
           <p className="mb-6">
             If you want your own fast and reliable website, or if you just want
             to say hello, feel free to use the contact form below.
-          </p> */}
+          </p>
+          <ContactForm onSubmit={() => alert('Unfortunately, this contact form isn\'t plugged to anything yet')} />
         </div>
       </div>
     </Layout>
