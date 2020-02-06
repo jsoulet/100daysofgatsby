@@ -8,7 +8,7 @@ import Hero from '../components/Hero'
 
 interface Props {
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       edges: [PostLinkProps]
     }
   }
@@ -20,8 +20,12 @@ const IndexPage = ({ data }: Props) => {
       <SEO title="Home" />
       <Hero />
       <div className="my-12">
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <PostLink post={node} key={node.id} excerpt={node.excerpt} />
+        {data.allMdx.edges.map(post => (
+          <PostLink
+            post={post}
+            key={post.node.id}
+            excerpt={post.node.excerpt}
+          />
         ))}
       </div>
     </Layout>
@@ -30,11 +34,14 @@ const IndexPage = ({ data }: Props) => {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id
           excerpt(pruneLength: 250)
+          fields {
+            slug
+          }
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             path

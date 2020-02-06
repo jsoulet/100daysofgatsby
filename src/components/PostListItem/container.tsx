@@ -4,17 +4,17 @@ import PostLink from './component'
 import { PostLinkProps } from './index'
 
 interface Props {
-  post: PostLinkProps['node']
+  post: PostLinkProps
   excerpt: string
 }
 
 const PostLinkContainer = ({ post, excerpt }: Props) => {
   return (
     <PostLink
-      path={post.frontmatter.path}
-      title={post.frontmatter.title}
-      date={post.frontmatter.date}
-      image={post.frontmatter.featuredImage}
+      path={post.node.fields.slug}
+      title={post.node.frontmatter.title}
+      date={post.node.frontmatter.date}
+      image={post.node.frontmatter.featuredImage}
       excerpt={excerpt}
     />
   )

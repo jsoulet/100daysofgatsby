@@ -1,0 +1,33 @@
+---
+title: Adding TinaCMS to Gatsby
+date: '2020-01-09T00:37:22.781Z'
+featuredImage: ../images/llama.jpg
+---
+
+It is Jan 9th and we're still waiting for the 2nd #100DaysOfGatsby challenge... 😢
+
+To keep on coding, I decided it was time for me to improve the writer experience and find a proper CMS for this blog.
+
+This weekend I stumbled across [TinaCMS](https://tinacms.org 'TinaCMS'). It's a tiny toolkit that can be plugged to a Gatsby or a Next.js website. It creates WYSIWYG interfaces to edit the content right from the page. As I didn't want to create an account for a Headless CMS platform, it seemed to be the perfect tool for my use case!
+
+## Installation
+
+Starting from a markdown Gatsby blog, the installation is almost too easy to be real. I followed the few steps in this article _[Integrate TinaCMS on your Gatsby Website](https://www.gatsbyjs.org/blog/2019-12-20-integrate-tinacms-with-your-gatsby-website/)_ by Scott Byrne and within some minutes, I managed to create a side form to edit the frontmatter data, and an inline form to edit the post content.
+
+With this tutorial, you're given the opportunity to edit your blog if it's served for development only. On production, the edit options are turned off and your blog is back on read-only mode. For my personal usage, this is more than enough: I am the only author and I'm perfectly able to run the blog in a development environment on my computer.
+
+For commercial use, you'll need a different approach. As the team behind TinaCMS is apparently working on a new service called [Tina Teams](https://tinacms.org/teams), they might be able to solve this use cases soon.
+
+## Usage
+
+I tried to write this article fully with the CMS editor and unfortunately the experience is not as smooth as the video on TinaCMS's website.
+
+Several times, when I pressed backspace, it was interpreted as a "browser backspace" instead of an "editor backspace", which redirected me to the previous page.
+
+I also experienced some curious Gatsby server crashes. As I was focus writing, I didn't noticed them and I lost the few paragraphs I just wrote when I reloaded the page. 🤬
+
+Finally, the editor mode seems a bit slow and laggy. I think the delay I observed is due to the fact every modification is instantaneously saved into the destination file. Those bugs turned me crazy and I had to switched back to VS Code to finish the article.
+
+## Conclusion
+
+The wow effect I had when I installed TinaCMS quickly disappeared when I tried to write the blog post. For the future posts, I'll keep on writing from the markdown files and use TinaCMS editor to edit or rephrase part of them once they're written.

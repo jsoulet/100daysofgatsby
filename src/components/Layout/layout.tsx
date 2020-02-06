@@ -1,11 +1,9 @@
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
-import { withPlugin } from 'tinacms'
 
 import Header from './header'
 import Footer from './footer'
-import CreateBlogPlugin from './CreateBlogPlugin'
 
 import './layout.css'
 
@@ -43,4 +41,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default withPlugin(Layout, CreateBlogPlugin)
+export default Layout

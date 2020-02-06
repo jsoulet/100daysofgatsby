@@ -1,0 +1,24 @@
+---
+title: 'Challenge #5: Add MDX support'
+date: 2020-02-06
+featuredImage: ../images/book.jpg
+---
+
+MDX is a very powerfull format that is able to intreprete JSX inside a Markdown file. So that you can use the MD syntax for common text parts (title, lists, code blocks) and use JS components for dynamic content, like forms or charts.
+
+![](../images/mdx-fusion-meme.jpg)
+
+At first, I tried to implement MDX support using several random articles. I don't know why but I couldn't make it work properly. Then I managed to finalise it thanks to the [official Gatsby documentation](https://www.gatsbyjs.org/docs/mdx/). Once again, I can say this doc is the best I ever encountered, covering step-by-step tutorial for beginers but also lots of recipies and reference guides for advanced usages.
+
+There's nothing more to say : if you want to add MDX support, just follow the guide !
+
+## Remark plugins
+
+Gatsby MDX supports Remark plugins. As far as I'm concerned, I am using two of them
+
+- _gatsby-remark-images_: add `gatsby-image` support to Markdown images. This is the plugin I already used to for [challenge #3](/blog/2020-01-22)
+- _gatsby-remark-prismjs_: PrismJS is a librairy to add syntaxe highlighting to code blocks. From now the code I may show you in the articles will be easier to read! You can have a look on an example in the [previous post](/blog/2020-02-05)
+
+## TinaCMS support
+
+TinaCMS doesn't handle MDX files, so I add to drop TinaCMS support... for now! While investigating I stumbled uppon this [very recent PR](https://github.com/tinacms/tinacms/pull/713) that is supposed to create a new package called `gatsby-tinacms-mdx`. Even if I don't use TinaCMS to write blog posts, it is usefull to fix typos. So I hope I'll be able to reintegrate it soon 🤞

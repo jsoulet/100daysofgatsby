@@ -1,0 +1,40 @@
+---
+title: 'Challenge #2: Build and Deploy Your Gatsby Site (Using Free Tools)'
+date: '2020-01-10T20:21:51.597Z'
+featuredImage: ../images/container.jpg
+---
+
+The 2nd #100DaysOfGatsby challenge is to build and deploy the blog we created last week. Needless to say mine was already online! 🚀
+
+Thanks to Netlify, you can get your static Gatsby website up with an out-of-the-box CI/CD in a few clicks :
+
+1. Create a Netlify account
+2. Create a new project from its git repository  
+   You have to link your Gitlab, Bitbucket or Github account and select a project. For those of you who are using a self hosted Gitlab instance, here is an post to [use Netlify CLI and setup your CD using pipelines](https://dev.to/sidhantpanda/self-hosted-gitlab-continuous-deployment-to-netlify-49lk).
+3. Setup build options.  
+   First select the branch to watch: each new commit on it will trigger a new deploy. Then the basic settings are the build command, and the build destination directory. Because you have a Gatsby project, Netlify seems to recognise and prefill the fields with the default values.
+4. Click on "Deploy site"
+
+... and that's all!
+
+## Netlify bonuses
+
+Static hosting is not the only thing Netlify can offer you for free.
+
+All the forms are parsed on your website. Through some additional parameters on the html, Netlify can catch form submissions (up to 100 per month for the free plan) and send you the data by email, to a Zappier recipe, to a custom webhook...
+
+You can also deploy more than one branch for your project. Therefore it's possible to create app-preview for your PR or have your pre-release version available online. The crazy thing is you can also redirect part of the traffic to another branch and get A/B tasting.
+
+Netlify hosts your lambda function's code to run server side code, so that you can plug your favorite third-party services that transform your static website into a real webapp : register to newsletter via Mailchimp, pay via Stripe, plug a Firebase DB... Your secret API keys will remain hidden from the front-end code.
+
+There's also many more like the fact every build is stored so rollback is instant, your website has HTTPS certificate by default or you can use personal domain name and subdomains.
+
+## Some alternatives
+
+As my website was already hosted on Netlify, this 2nd challenge was instantly completed. To spice it, I tried other services.
+
+The first I tried was Gatsby Cloud. Unfortunately, it can only be plugged to a Github repository, and mine is hosted on Gitlab #fail. 🤦‍♂️
+
+Then I switched to Now.sh. It is as easy as with Netlify to host and deploy a static website. Zeit (Now.sh creators) offers a few similar features like cloud functions or hooks, but some others doesn't exist (forms, A/B tasting). Nevertheless, Now.sh can be conneted to other services via a plugin system and so it can extend the website's capabilities. For now, only a few of them are developped, but looking at the suggestions can let us imagine the vast amount of possibilities that will be offered in a near future.
+
+For what I've seen, Netlify is the best free hosting service thanks to its wide options. I'll stick to it for now! If you're using other services, feel free to [send me a message](https://twitter.com/johansoulet): I'll be happy to discover and test new ones.

@@ -1,0 +1,56 @@
+---
+title: 'Challenge #4: Import 3rd-party React components'
+date: '2020-02-05T23:48:17.597Z'
+featuredImage: ../images/mailbox.jpg
+---
+React ecosystem is wide and, because Gatsby relies on React componentes, all third-paty librairies can be added to a Gatsby website.
+This blog already uses react-helmet to manage html metadata and create nice Twitter cards. The goal of this challenge will be to use Formik to build a reusable contact form, for the [about page](/about) and then for the article pages.
+
+## Why using Formik?
+
+Forms are important in an app: the're the doors you offers to the users for interacting with you. Building a neat experience for them can sometimes become verbose, especially if your form holds many fields, with several validators per fields. Using a form librairy can speed up your development.
+
+Redux-Form is well known and establised into React community, but I prefer Formik over it. Most of the forms I build don't need to have their state stored into a global object. Moreover, keeping it local and ephemeral will avoid side effect and reduce bugs.
+
+Formik has `<Field />` compotents that uses React Context, and that are supposed to reduce boilerplate by "automagically hook up inputs to Formik". I always prefer explicit over implicit, so this is not the way I decided to implement the contact form.
+
+_Formik is written using TypeScript. As I started learning TS one month ago, my skills are still very low and integrating it to this website as not been that easy. But in the end, it resulted into a stronger and more resilant form than if it was coded in plain JS._
+
+## Building the form
+
+Create a raw form component. For accessibility purpouse, don't forget that each field must have a label. During this phase, you can also plan the containers of your error message so they'll perfectly fit.
+
+Import `useFormik` hook and use it into the functional component. This hook takes a config object with, the form `initialState`, a `onSubmit` function and a `validate` function (not required), and returns the formik state and helpers
+
+_useFormik documentation discourages to use this hook in favor of `<Formik>` or `withFormik` HOCs. For now, I can't understand why... 🤔_
+
+Bind your form inputs to the formik state: `<input type="email" value={formik.values.email} onChange={formik.handleChange}/>`
+
+Bind your form submit to formik handler: `<form onSubmit={formik.handleSubmit}>`
+
+If you want a custom form validation, that can be done thanks to the `validate` function. It takes the values object and returns an errors object, with the field id as key and the error message as value.
+
+```typescript
+const validate = (values: ContactFormValues) => {
+  let errors: FormikErrors<ContactFormValues> = {}
+
+  if (!values.email) {
+    errors.email = 'Email is required'
+  } else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+  ) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors
+}
+```
+
+Once your validate function is implemented, you'll be able to get the error messages from formik helper `formik.errors.email` to display them in the form template.
+
+## Going further
+
+Unfortunately [useFormik documentation](https://jaredpalmer.com/formik/docs/api/useFormik) is not really explicit, certainly because they don't advise to that hook.  I initially planned to list all the properties of the config file and return values, but I assume this is not persistent and a bit redundant. So I prefer to link you the actual type definition from Github repository.
+
+- [FormikConfig](https://github.com/jaredpalmer/formik/blob/master/packages/formik/src/types.tsx#L162): config object
+- [FormikProps](https://github.com/jaredpalmer/formik/blob/master/packages/formik/src/types.tsx#L228): returned value

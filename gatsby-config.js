@@ -3,7 +3,7 @@ module.exports = {
     title: `#100DaysOfGatsby`,
     description: `To kick off the year 2020, I'm joining the #100DaysOfGatsby Challenge. This blog will document my journey.`,
     author: `@johansoulet`,
-    siteUrl: 'https://100daysofgatsby2020.netlify.com'
+    siteUrl: 'https://100daysofgatsby.johansoulet.fr'
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -24,19 +24,19 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-tinacms",
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        sidebar: {
-          hidden: process.env.NODE_ENV === "production",
-          position: "displace",
-        },
-        plugins: ["gatsby-tinacms-git", "gatsby-tinacms-remark"],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          
+          
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+              noInlineHighlight: true,
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
