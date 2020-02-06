@@ -1,8 +1,10 @@
 ---
-title: 'Challenge #5: Add MDX support'
+title: 'Challenge #5: Add React Components in Markdown'
 date: 2020-02-06
 featuredImage: ../images/book.jpg
 ---
+
+import ContactForm from './../../src/components/ContactForm'
 
 MDX is a very powerfull format that is able to intreprete JSX inside a Markdown file. So that you can use the MD syntax for common text parts (title, lists, code blocks) and use JS components for dynamic content, like forms or charts.
 
@@ -19,6 +21,12 @@ Gatsby MDX supports Remark plugins. As far as I'm concerned, I am using two of t
 - _gatsby-remark-images_: add `gatsby-image` support to Markdown images. This is the plugin I already used to for [challenge #3](/blog/2020-01-22)
 - _gatsby-remark-prismjs_: PrismJS is a librairy to add syntaxe highlighting to code blocks. From now the code I may show you in the articles will be easier to read! You can have a look on an example in the [previous post](/blog/2020-02-05)
 
-## TinaCMS support
+## TinaCMS support 🦙
 
-TinaCMS doesn't handle MDX files, so I add to drop TinaCMS support... for now! While investigating I stumbled uppon this [very recent PR](https://github.com/tinacms/tinacms/pull/713) that is supposed to create a new package called `gatsby-tinacms-mdx`. Even if I don't use TinaCMS to write blog posts, it is usefull to fix typos. So I hope I'll be able to reintegrate it soon 🤞
+TinaCMS doesn't handle MDX files, so I add to drop TinaCMS support... for now! While investigating I stumbled uppon this [very recent PR](https://github.com/tinacms/tinacms/pull/713) that is supposed to create a new package called `gatsby-tinacms-mdx`. Even if I don't use TinaCMS to write blog posts, it is usefull to fix typos. So I hope I'll be able to reintegrate it soon. 🤞
+
+As an example of MDX power, here is the same contact form of the [about page](/about) that will be used to let visitors publish comments. I think it will be more relevant to have it at the layout level, but consider it as a proof of concept. 😎
+
+<ContactForm
+  onSubmit={() => alert('I am very sorry but this form is not working yet')}
+/>
