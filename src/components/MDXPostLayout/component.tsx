@@ -55,6 +55,7 @@ interface BlogPostProps {
         {
           node: {
             body: any
+            excerpt: string
             frontmatter: {
               title: string
               date: string
@@ -72,20 +73,14 @@ interface BlogPostProps {
   }
 }
 
-const BlogPost: FunctionComponent<BlogPostProps> = ({
-  data,
-  pageContext,
-  // children,
-  // isEditing,
-  // setIsEditing,
-}) => {
+const BlogPost: FunctionComponent<BlogPostProps> = ({ data, pageContext }) => {
   const { node } = data.allMdx.edges[0]
   const { body, frontmatter } = node
   const { next, previous } = pageContext
 
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={'excerpt'} />
+      <SEO title={frontmatter.title} description={node.excerpt} />
       <Helmet
         meta={[
           {
