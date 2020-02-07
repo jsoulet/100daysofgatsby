@@ -4,9 +4,6 @@ export interface PostLinkProps {
   node: {
     id: string
     excerpt: string
-    fields: {
-      slug: string
-    }
     frontmatter: {
       path: string
       title: string

@@ -1,21 +1,20 @@
-import React from 'react'
+import React, { FC } from 'react'
 import PostLink from './component'
 
 import { PostLinkProps } from './index'
 
 interface Props {
   post: PostLinkProps
-  excerpt: string
 }
 
-const PostLinkContainer = ({ post, excerpt }: Props) => {
+const PostLinkContainer: FC<Props> = ({ post }) => {
   return (
     <PostLink
-      path={post.node.fields.slug}
+      path={post.node.frontmatter.path}
       title={post.node.frontmatter.title}
       date={post.node.frontmatter.date}
       image={post.node.frontmatter.featuredImage}
-      excerpt={excerpt}
+      excerpt={post.node.excerpt}
     />
   )
 }

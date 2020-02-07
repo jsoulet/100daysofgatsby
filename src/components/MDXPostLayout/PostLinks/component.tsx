@@ -12,13 +12,13 @@ const PostLinks: FunctionComponent<PostLinksProps> = ({ next, previous }) => {
         <PostLink
           isPrevious
           title={previous.frontmatter.title}
-          link={previous.fields.slug}
+          link={previous.frontmatter.path}
         />
       ) : (
         <span />
       )}
       {next ? (
-        <PostLink title={next.frontmatter.title} link={next.fields.slug} />
+        <PostLink title={next.frontmatter.title} link={next.frontmatter.path} />
       ) : (
         <span />
       )}

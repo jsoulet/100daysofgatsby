@@ -21,11 +21,7 @@ const IndexPage = ({ data }: Props) => {
       <Hero />
       <div className="my-12">
         {data.allMdx.edges.map(post => (
-          <PostLink
-            post={post}
-            key={post.node.id}
-            excerpt={post.node.excerpt}
-          />
+          <PostLink post={post} key={post.node.id} />
         ))}
       </div>
     </Layout>
@@ -39,9 +35,6 @@ export const pageQuery = graphql`
         node {
           id
           excerpt(pruneLength: 250)
-          fields {
-            slug
-          }
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             path
