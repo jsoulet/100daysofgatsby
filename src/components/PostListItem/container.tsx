@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FunctionComponent } from 'react'
 import PostLink from './component'
 
 import { PostLinkProps } from './index'
@@ -7,7 +7,7 @@ interface Props {
   post: PostLinkProps
 }
 
-const PostLinkContainer: FC<Props> = ({ post }) => {
+const PostLinkContainer: FunctionComponent<Props> = ({ post }) => {
   return (
     <PostLink
       path={post.node.frontmatter.path}

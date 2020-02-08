@@ -7,20 +7,22 @@ import Input from './Input'
 import validate from './validate'
 
 interface ContactFormProps {
-  onSubmit: (values: ContactFormValues) => void
+  onSubmit: (values: ContactFormValues) => Promise<any>
+  initialValues: ContactFormValues
 }
 
-const initialValues: ContactFormValues = {
-  email: '',
-  firstname: '',
-  lastname: '',
-  message: '',
-}
-
-const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
+const ContactForm: FunctionComponent<ContactFormProps> = ({
+  onSubmit,
+  initialValues,
+}) => {
+  const handleOnSubmit = (onSubmit: ContactFormProps['onSubmit']) => (
+    values: ContactFormValues
+  ) => {
+    onSubmit(values).then(() => formik.resetForm())
+  }
   const formik = useFormik<ContactFormValues>({
     initialValues,
-    onSubmit,
+    onSubmit: handleOnSubmit(onSubmit),
     validate,
   })
 
@@ -80,7 +82,10 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
             value="Send"
             className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="submit"
-          >Submit</button>
+            disabled={formik.isSubmitting || !formik.isValid}
+          >
+            Submit
+          </button>
         </div>
         <div className="md:w-2/3"></div>
       </div>
