@@ -1,0 +1,32 @@
+---
+title: 'Challenge #6: Use Serverless Functions and Services to Collect Form Data'
+date: 2020-02-09
+path: blog/2020-02-09-challenge-8-collect-form-data
+featuredImage: ../images/superman.jpg
+---
+
+On a previous challenge, I created a nice contact form on [about page](/about), but for now it was not handleing submissions. The goal for challenge #6 is to use an external service or a serverless function to collect data.
+
+Netlify is offering a Form add-on that automatically parses the html code to detect forms and plugs it to Slack, emails or Zapier.
+
+I already tested this service on a couple of blogs so prefered to discover a new service. I had heared about Formik Cloud, and because I already use Formik as React form librairy, I picked it up.
+
+I've been impressed by how easy it was to implement that service. I just followed the few steps of the onboarding to create my account, a project and a form. Then I've been given a url to post form data to.
+
+Formik Cloud admin panel offers code samples for plain HTML, React, Formik and curl integrations. I just had to copy past what they gave me to make the form submission work.
+
+```ts
+onSubmit={values => {
+      fetch('https://api.formik.com/submit/project/form', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+    }}
+```
+
+I eventually created Actions linked to my form submissions. Like Netlify, it is possible to send data by email, webhooks, notifications, zapier. In only tested email integration yet, but it is way more detailed as Netlify's. With this one, you can customize the email, reuse the form data, build a custom html template...
+
+The free tier allow 100 form submission/month. It's not a lot, but it will be enough for this blog, unless hundreds of you want to send me gratitude or support emails to [show your love](/about).
