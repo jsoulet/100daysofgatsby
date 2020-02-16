@@ -10,9 +10,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import favicon16 from '../images/favicon16.png'
-import favicon32 from '../images/favicon32.png'
-import favicon96 from '../images/favicon96.png'
 import ogImage from '../images/og-image.png'
 import twitterImage from '../images/twitter-card.png'
 
@@ -52,21 +49,6 @@ function SEO({ description, lang, meta = [], title }: Props) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={[
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '16x16',
-          href: `${favicon16}`,
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '32x32',
-          href: `${favicon32}`,
-        },
-        { rel: 'shortcut icon', type: 'image/png', href: `${favicon96}` },
-      ]}
       meta={[
         {
           name: `description`,

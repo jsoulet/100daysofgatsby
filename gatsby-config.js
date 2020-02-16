@@ -49,6 +49,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        icon: `src/images/icon.png`,
         name: `100 Days of Gatsby, by @johansoulet`,
         short_name: `#100DaysOfGatsby`,
         start_url: `/`,
