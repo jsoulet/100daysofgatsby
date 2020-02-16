@@ -46,6 +46,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `100 Days of Gatsby, by @johansoulet`,
+        short_name: `#100DaysOfGatsby`,
+        start_url: `/`,
+        background_color: `#F7FAFC`,
+        theme_color: `#38B2AC`,
+        display: `standalone`,
+      },
+    },
+    'gatsby-plugin-offline',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-postcss`
