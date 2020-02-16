@@ -37,9 +37,6 @@
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.12.2",
-    "@graphql-codegen/typescript": "^1.12.2",
-    "@graphql-codegen/typescript-operations": "^1.12.2",
     "prettier": "^1.19.1",
     "typescript": "^3.7.4"
   },
@@ -54,7 +51,6 @@
     "start": "npm run clean && npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "codegen:generate": "graphql-codegen",
     "type-check": "tsc --noEmit",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
