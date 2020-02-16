@@ -10,7 +10,7 @@ import PostLinks, { PostLinkInterface } from './PostLinks'
 import SEO from '../seo'
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query BlogPost($id: String!) {
     site {
       siteMetadata {
         siteUrl

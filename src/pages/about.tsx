@@ -120,7 +120,7 @@ const AboutPage = ({ data }: Props) => {
 }
 
 export const pageQuery = graphql`
-  query AboutPageQuery {
+  query AboutPage {
     allFile(filter: { relativePath: { eq: "rollerskate.jpg" } }) {
       edges {
         node {

@@ -29,7 +29,7 @@ const IndexPage = ({ data }: Props) => {
 }
 
 export const pageQuery = graphql`
-  query {
+  query IndexPage {
     allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {

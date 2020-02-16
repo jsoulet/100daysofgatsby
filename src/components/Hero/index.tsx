@@ -5,7 +5,7 @@ import Image from 'gatsby-image'
 
 const Hero = () => {
   const avatar = useStaticQuery(graphql`
-    query AvatarQuery {
+    query Avatar {
       allFile(filter: { relativePath: { eq: "avatar.jpg" } }) {
         edges {
           node {
